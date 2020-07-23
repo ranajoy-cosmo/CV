@@ -1,0 +1,272 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019-2020 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Please visit https://github.com/PandaScience/FortySecondsCV for the most
+% recent version! For bugs or feature requests, please open a new issue on
+% github.
+%
+% Contributors
+% ------------
+% * ifokkema
+% * Bertbk
+% * Hespe
+% * esben
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	a4paper,
+     %showframes,
+     %vline=2.2em,
+     %maincolor=cvgreen,
+	% sidecolor=gray!50,
+     %sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+    topbottommargin=0.8cm,
+	% leftrightmargin=20pt,
+    profilepicsize=4.5cm,
+	% profilepicborderwidth=3.5pt,
+    profilepicborderwidth=3.5pt,
+    % profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+	% logowidth=4.5cm,
+	% logospace=5mm,
+	% logoposition=before,
+	% sidebarplacement=right,
+]{fortysecondscv}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+
+% uncomment in case you don't want any hyphenation
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+	% \newfontfamily\headingfont[Path=fonts/]{segoeuib.ttf} % use local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+\fi
+
+% use a sans serif font as default
+\usepackage[sfdefault]{ClearSans}
+% \usepackage[sfdefault]{noto}
+
+% multi-language CV XeLaTeX and polyglossia (should also work with LuaLaTeX)
+% NOTE: breaks \pointskill, \membership and some spacings
+% \ifxetexorluatex
+% 	\usepackage{polyglossia}
+% 	\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.5]{Amiri}
+% 	\newfontfamily\englishfontsf{Clear Sans}
+% 	\setmainfont{Amiri}
+% 	\setdefaultlanguage{arabic}
+% 	\setotherlanguage{english}
+% \fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+%\setlist[itemize]{leftmargin=*}
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{Ranajoy Banerji}
+% job title/career
+\cvjobtitle{Data Scientist, PhD}
+\workplace{University of Oslo}
+
+%% optional information
+% profile picture
+\cvprofilepic{pics/profile.jpg}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+\cvbirthday{03/03/1990}
+% short address/location, use \newline if more than 1 line is required
+%\cvaddress{Oslo, Norway}
+% phone number
+\cvphone{+47 412 69 196}
+%\personal{\faPhone}{+47 412 69 196}
+% email address
+\cvmail{ranajoy.cosmo@gmail.com}
+% personal website
+%\cvsite{https://pandascience.net}
+% any other custom entry
+%\cvcustomdata{\faFlag}{Chinese}
+\cvcustomsocial{\faGithub}{https://github.com/ranajoy-cosmo}{ranajoy-cosmo}
+\cvcustomsocial{\faLinkedin}{https://www.linkedin.com/in/ranajoy-banerji/}{ranajoy-banerji}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+    \vspace{-3pt}
+	\profilesection{About Me}
+    \vspace{-10pt}
+    \aboutme{Data scientist, Astrophysicist and problem solver with 6 years of experience in extracting knowledge from large astrophysical datasets, and leading research teams. Proficient in building data pipelines in Python, statistical modelling and designing algorithms. Looking forward to providing actionable insights for businesses and real-world problems.}
+
+    \vspace{-3pt}
+	\profilesection{Coding Languages}
+    \vspace{-15pt}
+    \begin{tabularx}{\columnwidth}{XX}
+        \colitem{Python} & \colitemy{6 years}\\
+        \colitem{C}, \colitem{C++} & \colitemy{3 years}\\
+        \colitem{SQL} & \colitemy{1 year}\\
+    \end{tabularx}
+
+    \vspace{-3pt}
+	\profilesection{Data Science Tools}
+    \vspace{-15pt}
+    \begin{tabularx}{\columnwidth}{XX}
+        \colitem{Spark} & \colitem{TensorFlow}\\
+        \colitem{scikit-learn} & \colitem{numpy}\\
+        \colitem{scipy} & \colitem{pandas}\\
+    \end{tabularx}
+
+    \vspace{-3pt}
+	\profilesection{Languages}
+    \vspace{-15pt}
+    \begin{tabularx}{\columnwidth}{XX}
+        \colitem{English} & \colitem{Norwegian A1}\\
+        %\colitem{Hindi} & \colitem{Bengali}\\
+        \colitem{German B1} & \colitem{French A2}\\
+    \end{tabularx}
+
+    \vspace{-3pt}
+	\profilesection{Activities}
+    \vspace{-15pt}
+    \begin{tabularx}{\columnwidth}{X}
+        \colitem{Classical Pianist} \\
+    \end{tabularx}
+    \begin{tabularx}{\columnwidth}{XX}
+        \colitem{Road Cyclist} & \colitem{Swing Dancer} \\
+    \end{tabularx}
+}
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Core Skills}
+\begin{itemize}[parsep=0.5pt, leftmargin=*]
+    \item \itc{\skit{Research} with strong fundamentals in \skit{data modelling}, and \skit{Statistics} in both \skit{Bayesian} and \skit{Frequentist} domains.}
+    \item \itc{Analysing massive \skit{timeseries datasets} and \skit{image processing}.}
+    \item \itc{Designing \skit{end-to-end data pipelines} in \skit{Python} using \skit{High Performance Computing} techniques.}
+    \item \itc{\skit{Data visualisation} and \skit{communicating results}, with invited talks at several international conferences and workshops, and peer-reviewed publications.}
+    \item \itc{\skit{Mentoring}, currently guiding 2 PhD student.}
+\end{itemize}
+
+    %\normalsize
+\cvsection{Software Development}
+\begin{cvtable}[1.5]
+    \cvitemdevel{\href{https://github.com/ranajoy-cosmo/genesys}{genesys}}
+    {
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \itc{Leader in its class of end-to-end time-domain pipelines for microwave space telescopes.}
+            \item \itc{Simulating and analysing PetaByte order timeseries data in hours. Highly scalable and memory efficient using a novel data-distribution algorithm and Huffman coding.}
+            \item \itc{In production for major astrophysics collaborations and space telescopes.}
+        \end{itemize}
+    }
+    \cvitemdevel{\href{https://github.com/ranajoy-cosmo/core-plus}{core\_plus}}
+    {
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \itc{An innovative set of machine learning tools for timeseries signal and image analysis for microwave telescopes.}
+            \item \itc{Achieved $~100$x reduction in bias by detecting and correcting signal anomalies using a novel maximum likelihood filtering algorithm.}
+            \item \itc{Improved $~10$x in time complexity and memory usage through a new distributed signal to image reconstruction algorithm.}
+            \item \itc{Reduced complexity from $O(N^2)$ to $O(N\log N)$ in a signal convolution problem by combining real and Fourier-space techniques.}
+        \end{itemize}
+    }
+    \cvitemdevel{\href{https://github.com/ranajoy-cosmo/movie-rec}{movie\_rec}}
+    {
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \itc{A movie recommendation system built on different collaborative filtering approaches.}
+        \end{itemize}
+    }
+\end{cvtable}
+\\
+\cvsection{Experience}
+\begin{cvtable}[1.5]
+    \cvitemexp{2017-now}{Data Scientist / Researcher}{University of Oslo}
+    {
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \itc{Providing the latest in astrophysical parameter extraction and signal filtering in a Gibbs sampling MCMC framework.}
+            \item \itc{Delivering critical forecasts for future space telescope missions.}
+            \item \itc{Significant contribution to the data pipeline design for a major upcoming space telescope.}
+            \item \itc{Lead of data analysis group for a space telescope consortium.}
+        \end{itemize}
+    }
+    \cvitemexp{2014-2017}{PhD Researcher}{CNRS / CNES / Universit\'e Paris VII}
+    {
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \itc{Successfully characterised and cleaned telescope data through its spectral analysis.}
+            \item \itc{Contributed significantly to the design and optimisation of 2 space mission proposals.}
+            \item \itc{First to investigate pixel level effects on reconstructed sky images leading to biases on scientific parameters.}
+        \end{itemize}
+    }
+    \cvitemexp{2013-2014}{Junior Research Fellow}{Saha Institute of Nuclear Physics}
+    {
+        \begin{itemize}[leftmargin=*, nosep]
+        \item \itc{Implemented a cross-correlation algorithm for noisy, unevenly sampled telescope data.}
+        \item \itc{Implemented a linear classifier, in a multi-dimensional image parameter space, to distinguish cosmic ray events.}
+        \end{itemize}
+    }
+\end{cvtable}
+\\
+\cvsection{Education}
+\begin{cvtable}[1.5]
+    \cvitemexp{2014-2017}{PhD in Astrophysics}{Universit\'e Paris VII}
+    {\href{https://tel.archives-ouvertes.fr/tel-02019119/file/thesis_main_english.pdf}{\itc{Thesis: \textit{Optimisation of a $4^{th}$ generation CMB space mission.}}}}
+    \cvitemexp{2011-2013}{MSc in Physics}{University of Delhi}
+	{}
+    \cvitemexp{2008-2011}{BSc in Physics}{St. Xavier's College, Kolkata}
+	{}
+\end{cvtable}
+
+\end{document}
